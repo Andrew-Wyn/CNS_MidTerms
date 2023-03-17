@@ -1,12 +1,12 @@
 % function izhikevic(a, b, c, d, v, i0, t0, max_step, msg)
 
-as = [0.02, 0.02, 0.02, 0.02, 0.02, 0.01, 0.02, 0.2, 0.02];
-bs = [0.2, 0.25, 0.2, 0.25, 0.2, 0.2, -0.1, 0.26, 0.2];
-cs = [-65, -65, -50, -55, -55, -65, -55, -65, -65];
-ds = [6, 6, 2, 0.05, 4, 8, 6, 0, 6];
-vs = [-70, -64, -70, -64, -70, -70, -60, -64, -70];
-max_steps = [100, 200, 220, 200, 160, 85, 300, 300, 100];
-msgs = ["TonicSpiking", "PhasicSpiking", "TonicBursting", "PhasicBursting", "MixedMode", "SpikeFreqAdapt", "Class1Exc", "Class2Exc", "SpikeLatency"];
+as = [0.02, 0.02, 0.02, 0.02, 0.02, 0.01, 0.02, 0.2, 0.02, 0.05];
+bs = [0.2, 0.25, 0.2, 0.25, 0.2, 0.2, -0.1, 0.26, 0.2, 0.26];
+cs = [-65, -65, -50, -55, -55, -65, -55, -65, -65, -60];
+ds = [6, 6, 2, 0.05, 4, 8, 6, 0, 6, 0];
+vs = [-70, -64, -70, -64, -70, -70, -60, -64, -70, -62];
+max_steps = [100, 200, 220, 200, 160, 85, 300, 300, 100, 200];
+msgs = ["TonicSpiking", "PhasicSpiking", "TonicBursting", "PhasicBursting", "MixedMode", "SpikeFreqAdapt", "Class1Exc", "Class2Exc", "SpikeLatency", "SubThreshOsc"];
 
 voltagefs = {};
 voltagefs{1} = @(t) tonic_spiking(t);
@@ -103,10 +103,13 @@ function i = class_two_exc(t)
     end
 end
 
-function spike_latency(t)
+function i = spike_latency(t)
     if (t > 10) && (t < 13)
         i = 7.04;
     else
         i = 0;
     end
+end
+
+function 
 end
