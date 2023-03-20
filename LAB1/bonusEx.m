@@ -112,7 +112,7 @@ function i = bistability_1(t)
     T2 = 216;
 
     if ((t>T1) && (t < T1+5)) || ((t>T2) && (t < T2+5)) 
-        i=1.5;
+        i=1.2;
     else
         i=0.24;
     end
