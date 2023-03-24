@@ -52,8 +52,4 @@ function states = liquidStateMachine(input, hidden_dim, exc_perc, wInExc, wInInh
         
         states = [states (v>=30)];
     end
-    
-    disp(NumExc);
-    disp(NumInh);
-
 end
