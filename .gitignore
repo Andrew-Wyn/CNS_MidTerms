@@ -1,0 +1,9 @@
+# Matlab outputs
+*.asv
+*.mat
+
+# MacOS
+.DS_Store
+
+# Miscellaneous
+LAB1/images
