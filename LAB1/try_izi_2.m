@@ -14,7 +14,7 @@ tonic_spiking_config.is = is;
 tonic_spiking_config.p1 = 5;
 tonic_spiking_config.p2 = 140;
 
-% izi2(tonic_spiking_config);
+izi2(tonic_spiking_config);
 
 is = [zeros(1, 10*4), ones(1, 90*4)*0.5];
 
@@ -30,7 +30,7 @@ phasic_spiking_config.is = is;
 phasic_spiking_config.p1 = 5;
 phasic_spiking_config.p2 = 140;
 
-% izi2(phasic_spiking_config);
+izi2(phasic_spiking_config);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*15];
 
@@ -46,7 +46,7 @@ tonic_bursting_config.is = is;
 tonic_bursting_config.p1 = 5;
 tonic_bursting_config.p2 = 140;
 
-% izi2(tonic_bursting_config);
+izi2(tonic_bursting_config);
 
 is = [zeros(1, 20*5), ones(1, 90*5)*0.6];
 
@@ -62,7 +62,7 @@ phasic_bursting_config.msg = "PhasicBursting";
 phasic_bursting_config.p1 = 5;
 phasic_bursting_config.p2 = 140;
 
-% izi2(phasic_bursting_config);
+izi2(phasic_bursting_config);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*10];
 
@@ -78,7 +78,7 @@ mixed_mode_config.is = is;
 mixed_mode_config.p1 = 5;
 mixed_mode_config.p2 = 140;
 
-% izi2(mixed_mode_config);
+izi2(mixed_mode_config);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*30];
 
@@ -94,7 +94,7 @@ spike_freq_adapt_config.msg = "SpikeFreqAdapt";
 spike_freq_adapt_config.p1 = 5;
 spike_freq_adapt_config.p2 = 140;
 
-% izi2(spike_freq_adapt_config);
+izi2(spike_freq_adapt_config);
 
 is = [zeros(1, 30*4), (0:0.25:270)*0.075];
 
@@ -110,7 +110,7 @@ class_1_exc_config.msg = "Class1Exec";
 class_1_exc_config.p1 = 4.1;
 class_1_exc_config.p2 = 108;
 
-% izi2(class_1_exc_config);
+izi2(class_1_exc_config);
 
 is = [ones(1, 30*4)*-0.5, (0:0.25:270)*0.015+-0.5];
 
@@ -126,7 +126,7 @@ class_2_exc_config.msg = "Class2Exec";
 class_2_exc_config.p1 = 5;
 class_2_exc_config.p2 = 140;
 
-% izi2(class_2_exc_config);
+izi2(class_2_exc_config);
 
 is = [zeros(1, 10*5), ones(1, 3*5)*7.04, zeros(1, 87*5)];
 
@@ -142,7 +142,7 @@ spike_latency_config.msg = "SpikeLatency";
 spike_latency_config.p1 = 5;
 spike_latency_config.p2 = 140;
 
-% izi2(spike_latency_config);
+izi2(spike_latency_config);
 
 is = [zeros(1, 10*4), ones(1, 5*4)*2, zeros(1, 87*4)];
 
@@ -158,7 +158,7 @@ sub_thresh_osc_config.msg = "SubThreshOsc";
 sub_thresh_osc_config.p1 = 5;
 sub_thresh_osc_config.p2 = 140;
 
-% izi2(sub_thresh_osc_config);
+izi2(sub_thresh_osc_config);
 
 is = [zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 150*4), ones(1, 4*4)*0.65, zeros(1, 36*4), ones(1, 4*4)*0.65, zeros(1, 36*4)];
 
@@ -174,7 +174,7 @@ resonator_config.msg = "Resonator";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-%izi2(resonator_config);
+izi2(resonator_config);
 
 is = [zeros(1, 40*4), ones(1, 2*4)*9, zeros(1, 3*4), ones(1, 2*4)*9, zeros(1, 150*4), ones(1, 2*4)*9, zeros(1, 7*4), ones(1, 2*4)*9, zeros(1, 36*4)];
 
@@ -190,7 +190,7 @@ integrator_config.msg = "Integrator";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-%izi2(integrator_config);
+izi2(integrator_config);
 
 is = [zeros(1, 20*5), ones(1, 5*5)*-15, zeros(1, 170*5)];
 
@@ -206,7 +206,7 @@ rebound_spike_config.msg = "ReboundSpike";
 rebound_spike_config.p1 = 5;
 rebound_spike_config.p2 = 140;
 
-% izi2(rebound_spike_config);
+izi2(rebound_spike_config);
 
 is = [zeros(1, 20*5), ones(1, 5*5)*-15, zeros(1, 170*5)];
 
@@ -222,7 +222,7 @@ rebound_burst_config.msg = "ReboundBurst";
 rebound_burst_config.p1 = 5;
 rebound_burst_config.p2 = 140;
 
-% izi2(rebound_burst_config);
+izi2(rebound_burst_config);
 
 is = [zeros(1, 10*4), ones(1, 5*4)*1, zeros(1, 55*4), ones(1, 5*4)*-6, zeros(1, 5*4), ones(1, 5*4), zeros(1, 50*4)];
 
@@ -238,7 +238,7 @@ thresh_variability_config.msg = "ThreshVariability";
 thresh_variability_config.p1 = 5;
 thresh_variability_config.p2 = 140;
 
-% izi2(thresh_variability_config);
+izi2(thresh_variability_config);
 
 is = [ones(1, 151)*0.24, ones(1, 19)*1.24, ones(1, 695)*0.24, ones(1, 19)*1.24, ones(1, 337)*0.24];
 
@@ -254,7 +254,7 @@ bistability_config.msg = "Bistability";
 bistability_config.p1 = 5;
 bistability_config.p2 = 140;
 
-%izi2(bistability_config);
+izi2(bistability_config);
 
 is = [zeros(1, 5*10), ones(1, 20)*20, zeros(1, 50*10)];
 
@@ -270,7 +270,7 @@ dap_config.msg = "DAP";
 dap_config.p1 = 5;
 dap_config.p2 = 140;
 
-% izi2(dap_config);
+izi2(dap_config);
 
 is = [(0:0.5:200)/25, zeros(1, 100*2), (0:0.5:12.5)/12.5*4, zeros(1, 100*2)];
 
@@ -289,7 +289,7 @@ accomodation_config.p2 = 140;
 accomodation_config.p3 = 0;
 accomodation_config.p4 = 65;
 
-%izi2(accomodation_config);
+izi2(accomodation_config);
 
 is = [ones(1, 50*2)*80, ones(1, 200*2)*75, ones(1, 100*2)*80];
 
@@ -305,7 +305,7 @@ inhibition_induced_spiking_config.msg = "InhibitionInducedSpiking";
 inhibition_induced_spiking_config.p1 = 5;
 inhibition_induced_spiking_config.p2 = 140;
 
-% izi2(inhibition_induced_spiking_config);
+izi2(inhibition_induced_spiking_config);
 
 is = [ones(1, 50*2)*80, ones(1, 200*2)*75, ones(1, 100*2)*80];
 
@@ -321,7 +321,7 @@ inhibition_induced_bursting_config.msg = "InhibitionInducedBursting";
 inhibition_induced_bursting_config.p1 = 5;
 inhibition_induced_bursting_config.p2 = 140;
 
-% izi2(inhibition_induced_bursting_config);
+izi2(inhibition_induced_bursting_config);
 
 %%% Bonus Tracks
 
@@ -339,7 +339,7 @@ resonator_config.msg = "ResonatorBonusEx1";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-% izi2(resonator_config);
+izi2(resonator_config);
 
 is = [zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 100*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 100*4)];
 
@@ -355,7 +355,7 @@ resonator_config.msg = "ResonatorBonusEx2";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-% izi2(resonator_config);
+izi2(resonator_config);
 
 is = [zeros(1, 10*4), ones(1, 9*4)*9, zeros(1, 100*4), ones(1, 2*4)*9, zeros(1, 8*4), ones(1, 2*4)*9, zeros(1, 100*4)];
 
@@ -371,7 +371,7 @@ integrator_config.msg = "IntegratorBonusEx1";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-%izi2(integrator_config);
+izi2(integrator_config);
 
 is = [zeros(1, 10*4), ones(1, 1*4)*9, zeros(1, 100*4), ones(1, 1*4)*9, zeros(1, 100*4)];
 
@@ -387,7 +387,7 @@ integrator_config.msg = "IntegratorBonusEx2";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-% izi2(integrator_config);
+izi2(integrator_config);
 
 is = [ones(1, 151)*0.24, ones(1, 19)*1.2, ones(1, 695)*0.24, ones(1, 19)*1.2, ones(1, 337)*0.24];
 
@@ -403,7 +403,7 @@ bistability_config.msg = "BistabilityBonusEx1";
 bistability_config.p1 = 5;
 bistability_config.p2 = 140;
 
-% izi2(bistability_config);
+izi2(bistability_config);
 
 is = [zeros(1, 151), ones(1, 19)*0.2, zeros(1, 695), ones(1, 19)*0.2, zeros(1, 337)];
 
@@ -458,10 +458,10 @@ function izi2(config)
     for t = 1:length(is)
         i = is(t);
         
-        % leap frog step
+        % euler step
         dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
-        v = v + step*dv_dt;  
         du_dt = a*(b*v -p3*u + p4);
+        v = v + step*dv_dt;
         u = u + step*du_dt;
         
         % after spike reset
