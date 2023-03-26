@@ -1,17 +1,15 @@
-% add possibility to switch btw euler and leap-frog method
+% TODO: add possibility to switch btw euler and leap-frog method
 function izhikevic(config)
-    
     a = config.a;
     b = config.b;
     c = config.c;
     d = config.d;
     v = config.v;
-    voltagef = config.voltage_f;
-    max_step = config.max_step;
+    is = config.is;
     msg = config.msg;
     p1 = config.p1;
     p2 = config.p2;
-    
+        
     if (isnan(config.p3))
         p3 = 1;
     else
@@ -24,9 +22,7 @@ function izhikevic(config)
     end
     
     step = config.step;
-    
-    times = 0:step:max_step;
-    
+
     if (isnan(config.u))
         u = b*v;
     else
@@ -35,16 +31,13 @@ function izhikevic(config)
     
     vs = [];
     us = [];
-    is = [];
-    
-    for t=times
-        i = voltagef(t);
-        is(end+1) = i;
         
-        % leap frog step
+    for t = 1:length(is)
+        i = is(t);
         
+        % leap-frog step
         dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
-        v = v + step*dv_dt;        
+        v = v + step*dv_dt;
         du_dt = a*(b*v -p3*u + p4);
         u = u + step*du_dt;
         
@@ -63,12 +56,12 @@ function izhikevic(config)
     % ---- Plots
     subplot(2,2,1) 
     
-    plot(times,vs);
+    plot(vs);
     title("Membrane Potential: " + msg);
     
     subplot(2,2,3) 
     
-    plot(times,is);
+    plot(is);
     title("Input: " + msg);
 
     subplot(2,2,2)
