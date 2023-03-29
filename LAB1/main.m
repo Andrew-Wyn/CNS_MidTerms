@@ -1,3 +1,11 @@
+%
+% choose the ode solver method:
+% - leap-frog
+% - euler
+%
+
+ode_method = "leap-frog";
+
 % Tonic Spiking
 is = [zeros(1, 10*4), ones(1, 90*4)*14];
 
@@ -13,7 +21,7 @@ tonic_spiking_config.is = is;
 tonic_spiking_config.p1 = 5;
 tonic_spiking_config.p2 = 140;
 
-izhikevic(tonic_spiking_config);
+izhikevic(tonic_spiking_config, ode_method);
 
 is = [zeros(1, 10*4), ones(1, 90*4)*0.5];
 
@@ -29,7 +37,7 @@ phasic_spiking_config.is = is;
 phasic_spiking_config.p1 = 5;
 phasic_spiking_config.p2 = 140;
 
-izhikevic(phasic_spiking_config);
+izhikevic(phasic_spiking_config, ode_method);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*15];
 
@@ -45,7 +53,7 @@ tonic_bursting_config.is = is;
 tonic_bursting_config.p1 = 5;
 tonic_bursting_config.p2 = 140;
 
-izhikevic(tonic_bursting_config);
+izhikevic(tonic_bursting_config, ode_method);
 
 is = [zeros(1, 20*5), ones(1, 90*5)*0.6];
 
@@ -61,7 +69,7 @@ phasic_bursting_config.msg = "PhasicBursting";
 phasic_bursting_config.p1 = 5;
 phasic_bursting_config.p2 = 140;
 
-izhikevic(phasic_bursting_config);
+izhikevic(phasic_bursting_config, ode_method);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*10];
 
@@ -77,7 +85,7 @@ mixed_mode_config.is = is;
 mixed_mode_config.p1 = 5;
 mixed_mode_config.p2 = 140;
 
-izhikevic(mixed_mode_config);
+izhikevic(mixed_mode_config, ode_method);
 
 is = [zeros(1, 20*4), ones(1, 90*4)*30];
 
@@ -93,7 +101,7 @@ spike_freq_adapt_config.msg = "SpikeFreqAdapt";
 spike_freq_adapt_config.p1 = 5;
 spike_freq_adapt_config.p2 = 140;
 
-izhikevic(spike_freq_adapt_config);
+izhikevic(spike_freq_adapt_config, ode_method);
 
 is = [zeros(1, 30*4), (0:0.25:270)*0.075];
 
@@ -109,7 +117,7 @@ class_1_exc_config.msg = "Class1Exc";
 class_1_exc_config.p1 = 4.1;
 class_1_exc_config.p2 = 108;
 
-izhikevic(class_1_exc_config);
+izhikevic(class_1_exc_config, ode_method);
 
 is = [ones(1, 30*4)*-0.5, (0:0.25:270)*0.015+-0.5];
 
@@ -125,7 +133,7 @@ class_2_exc_config.msg = "Class2Exc";
 class_2_exc_config.p1 = 5;
 class_2_exc_config.p2 = 140;
 
-izhikevic(class_2_exc_config);
+izhikevic(class_2_exc_config, ode_method);
 
 is = [zeros(1, 10*5), ones(1, 3*5)*7.04, zeros(1, 87*5)];
 
@@ -141,7 +149,7 @@ spike_latency_config.msg = "SpikeLatency";
 spike_latency_config.p1 = 5;
 spike_latency_config.p2 = 140;
 
-izhikevic(spike_latency_config);
+izhikevic(spike_latency_config, ode_method);
 
 is = [zeros(1, 10*4), ones(1, 5*4)*2, zeros(1, 87*4)];
 
@@ -157,7 +165,7 @@ sub_thresh_osc_config.msg = "SubThreshOsc";
 sub_thresh_osc_config.p1 = 5;
 sub_thresh_osc_config.p2 = 140;
 
-izhikevic(sub_thresh_osc_config);
+izhikevic(sub_thresh_osc_config, ode_method);
 
 is = [zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 150*4), ones(1, 4*4)*0.65, zeros(1, 36*4), ones(1, 4*4)*0.65, zeros(1, 36*4)];
 
@@ -173,7 +181,7 @@ resonator_config.msg = "Resonator";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-izhikevic(resonator_config);
+izhikevic(resonator_config, ode_method);
 
 is = [zeros(1, 40*4), ones(1, 2*4)*9, zeros(1, 3*4), ones(1, 2*4)*9, zeros(1, 150*4), ones(1, 2*4)*9, zeros(1, 7*4), ones(1, 2*4)*9, zeros(1, 36*4)];
 
@@ -189,7 +197,7 @@ integrator_config.msg = "Integrator";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-izhikevic(integrator_config);
+izhikevic(integrator_config, ode_method);
 
 is = [zeros(1, 20*5), ones(1, 5*5)*-15, zeros(1, 170*5)];
 
@@ -205,7 +213,7 @@ rebound_spike_config.msg = "ReboundSpike";
 rebound_spike_config.p1 = 5;
 rebound_spike_config.p2 = 140;
 
-izhikevic(rebound_spike_config);
+izhikevic(rebound_spike_config, ode_method);
 
 is = [zeros(1, 20*5), ones(1, 5*5)*-15, zeros(1, 170*5)];
 
@@ -221,7 +229,7 @@ rebound_burst_config.msg = "ReboundBurst";
 rebound_burst_config.p1 = 5;
 rebound_burst_config.p2 = 140;
 
-izhikevic(rebound_burst_config);
+izhikevic(rebound_burst_config, ode_method);
 
 is = [zeros(1, 10*4), ones(1, 5*4)*1, zeros(1, 55*4), ones(1, 5*4)*-6, zeros(1, 5*4), ones(1, 5*4), zeros(1, 50*4)];
 
@@ -237,7 +245,7 @@ thresh_variability_config.msg = "ThreshVariability";
 thresh_variability_config.p1 = 5;
 thresh_variability_config.p2 = 140;
 
-izhikevic(thresh_variability_config);
+izhikevic(thresh_variability_config, ode_method);
 
 is = [ones(1, 151)*0.24, ones(1, 19)*1.24, ones(1, 695)*0.24, ones(1, 19)*1.24, ones(1, 337)*0.24];
 
@@ -253,7 +261,7 @@ bistability_config.msg = "Bistability";
 bistability_config.p1 = 5;
 bistability_config.p2 = 140;
 
-izhikevic(bistability_config);
+izhikevic(bistability_config, ode_method);
 
 is = [zeros(1, 5*10), ones(1, 20)*20, zeros(1, 50*10)];
 
@@ -269,7 +277,7 @@ dap_config.msg = "DAP";
 dap_config.p1 = 5;
 dap_config.p2 = 140;
 
-izhikevic(dap_config);
+izhikevic(dap_config, ode_method);
 
 is = [(0:0.5:200)/25, zeros(1, 100*2), (0:0.5:12.5)/12.5*4, zeros(1, 100*2)];
 
@@ -288,7 +296,7 @@ accomodation_config.p2 = 140;
 accomodation_config.p3 = 0;
 accomodation_config.p4 = 65;
 
-izhikevic(accomodation_config);
+izhikevic(accomodation_config, ode_method);
 
 is = [ones(1, 50*2)*80, ones(1, 200*2)*75, ones(1, 100*2)*80];
 
@@ -304,7 +312,7 @@ inhibition_induced_spiking_config.msg = "InhibitionInducedSpiking";
 inhibition_induced_spiking_config.p1 = 5;
 inhibition_induced_spiking_config.p2 = 140;
 
-izhikevic(inhibition_induced_spiking_config);
+izhikevic(inhibition_induced_spiking_config, ode_method);
 
 is = [ones(1, 50*2)*80, ones(1, 200*2)*75, ones(1, 100*2)*80];
 
@@ -320,4 +328,4 @@ inhibition_induced_bursting_config.msg = "InhibitionInducedBursting";
 inhibition_induced_bursting_config.p1 = 5;
 inhibition_induced_bursting_config.p2 = 140;
 
-izhikevic(inhibition_induced_bursting_config);
+izhikevic(inhibition_induced_bursting_config, ode_method);

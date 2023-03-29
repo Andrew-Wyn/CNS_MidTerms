@@ -1,3 +1,11 @@
+%
+% choose the ode solver method:
+% - leap-frog
+% - euler
+%
+
+ode_method = "leap-frog";
+
 %%% Bonus Tracks
 is = [zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 4*4), ones(1, 4*4)*0.65, zeros(1, 100*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 100*4), ones(1, 4*4)*0.65, zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 100*4)];
 
@@ -13,7 +21,7 @@ resonator_config.msg = "ResonatorBonusEx1";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-izhikevic(resonator_config);
+izhikevic(resonator_config, ode_method);
 
 is = [zeros(1, 40*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 100*4), ones(1, 4*4)*0.65, zeros(1, 16*4), ones(1, 4*4)*0.65, zeros(1, 100*4)];
 
@@ -29,7 +37,7 @@ resonator_config.msg = "ResonatorBonusEx2";
 resonator_config.p1 = 5;
 resonator_config.p2 = 140;
 
-izhikevic(resonator_config);
+izhikevic(resonator_config, ode_method);
 
 is = [zeros(1, 10*4), ones(1, 9*4)*9, zeros(1, 100*4), ones(1, 2*4)*9, zeros(1, 8*4), ones(1, 2*4)*9, zeros(1, 100*4)];
 
@@ -45,7 +53,7 @@ integrator_config.msg = "IntegratorBonusEx1";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-izhikevic(integrator_config);
+izhikevic(integrator_config, ode_method);
 
 is = [zeros(1, 10*4), ones(1, 1*4)*9, zeros(1, 100*4), ones(1, 1*4)*9, zeros(1, 100*4)];
 
@@ -61,7 +69,7 @@ integrator_config.msg = "IntegratorBonusEx2";
 integrator_config.p1 = 4.1;
 integrator_config.p2 = 108;
 
-izhikevic(integrator_config);
+izhikevic(integrator_config, ode_method);
 
 is = [ones(1, 151)*0.24, ones(1, 19)*1.2, ones(1, 695)*0.24, ones(1, 19)*1.2, ones(1, 337)*0.24];
 
@@ -77,7 +85,7 @@ bistability_config.msg = "BistabilityBonusEx1";
 bistability_config.p1 = 5;
 bistability_config.p2 = 140;
 
-izhikevic(bistability_config);
+izhikevic(bistability_config, ode_method);
 
 is = [zeros(1, 151), ones(1, 19)*0.2, zeros(1, 695), ones(1, 19)*0.2, zeros(1, 337)];
 
@@ -93,4 +101,4 @@ bistability_config.msg = "BistabilityBonusEx2";
 bistability_config.p1 = 5;
 bistability_config.p2 = 140;
 
-izhikevic(bistability_config);
+izhikevic(bistability_config, ode_method);

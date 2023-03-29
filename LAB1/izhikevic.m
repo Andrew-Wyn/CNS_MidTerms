@@ -1,5 +1,5 @@
 % TODO: add possibility to switch btw euler and leap-frog method
-function izhikevic(config)
+function izhikevic(config, ode_method)
     a = config.a;
     b = config.b;
     c = config.c;
@@ -36,10 +36,17 @@ function izhikevic(config)
         i = is(t);
         
         % leap-frog step
-        dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
-        v = v + step*dv_dt;
-        du_dt = a*(b*v -p3*u + p4);
-        u = u + step*du_dt;
+        if ode_method == "leap-frog"
+            dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
+            v = v + step*dv_dt;
+            du_dt = a*(b*v -p3*u + p4);
+            u = u + step*du_dt;
+        elseif ode_method == "euler"
+            dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
+            du_dt = a*(b*v -p3*u + p4);
+            v = v + step*dv_dt;
+            u = u + step*du_dt;
+        end
         
         % after spike reset
         if v > 30
