@@ -1,5 +1,7 @@
 % Hebbian learning
 
+learning_mode = "sub_norm";
+
 % -- load the dataset
 data = table2array(readtable('lab2_1_data.csv'));
 
@@ -11,17 +13,28 @@ ws = w;
 
 epochs = 10;
 
-learning_rate = 0.01;
+learning_rate = 0.1;
 thr = 0.1;
+alpha_oja = 0.1;
 
 for ep = 1:epochs
     for i = randperm(size(data, 2))
         % generate v
         v_i = w'*data(:, i);
         
-        % compute the hebb step
-        w = w + learning_rate*(v_i*data(:, i));
-        
+        if learning_mode == "hebb"
+            % compute the hebb step
+            delta_w = (v_i*data(:, i));
+        elseif learning_mode == "oja"
+            % compute the oja step
+            delta_w = (v_i*data(:, i) - alpha_oja*v_i^2*w);
+        elseif learning_mode == "sub_norm"
+            % compute the subtractive normalization step
+            delta_w = (v_i*data(:, i) - (v_i*(ones(1,2)*data(:, i))*ones(2,1))/2);
+        end
+            
+        w = w + learning_rate*delta_w;
+                
         ws = [ws, w];
     end
     
