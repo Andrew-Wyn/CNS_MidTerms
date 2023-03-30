@@ -115,24 +115,29 @@ function results = learn_lsm(input_dataset, target_dataset, hidden_dims, exc_per
         plot(1:size(train_target, 2), train_target);
         hold on
         plot(1:size(train_output, 2), train_output);
+        title("Train Predictions");
         hold off
-
         pause();
+        f = gcf;
+        exportgraphics(f, 'images/Train_Predictions.png', 'Resolution',300);
 
         plot(1:size(valid_target, 2), valid_target);
         hold on
         plot(1:size(valid_output, 2), valid_output);
+        title("Valid Predictions");
         hold off
-
         pause();
+        f = gcf;
+        exportgraphics(f, 'images/Valid_Predictions.png', 'Resolution',300);
 
         plot(1:size(test_target, 2), test_target);
         hold on
         plot(1:size(test_output, 2), test_output);
+        title("Test Predictions");
         hold off
-
         pause();
-
+        f = gcf;
+        exportgraphics(f, 'images/Test_Predictions.png', 'Resolution',300);
     end
 end
 
