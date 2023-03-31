@@ -1,10 +1,15 @@
-function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, learning_mode)
+function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, theta_v, learning_mode)
 
     % -- initialize the weight vector of dimension 2
     % --- uniform sampling between [-1, 1]
     w = (2).*rand(2,1) - 1;
 
     ws = w;
+    
+    % -- covariance rule
+    if learning_mode == "covariance"
+        u_mean = mean(data, 2);
+    end
 
     for ep = 1:epochs
         for i = randperm(size(data, 2))
@@ -20,6 +25,10 @@ function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, learning_
             elseif learning_mode == "sub-norm"
                 % compute the subtractive normalization step
                 delta_w = (v_i*data(:, i) - (v_i*(ones(1,2)*data(:, i))*ones(2,1))/2);
+            elseif learning_mode == "covariance"
+                delta_w = (v_i*(data(:, i)-u_mean));
+            elseif learning_mode == "bcm"
+                delta_w = (v_i*data(:, i)*(v_i-theta_v));
             end
 
             w = w + learning_rate*delta_w;
