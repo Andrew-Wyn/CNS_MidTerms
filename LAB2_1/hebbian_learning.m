@@ -1,14 +1,28 @@
-function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, theta_v, learning_mode)
-
+function hebbian_learning(data, epochs, learning_rate, thr, learning_mode, varargin)
     % -- initialize the weight vector of dimension 2
     % --- uniform sampling between [-1, 1]
     w = (2).*rand(2,1) - 1;
 
     ws = w;
-    
-    % -- covariance rule
+
+    % -- get varargin
+    if learning_mode == "oja"
+        alpha_oja = cell2mat(varargin(1));
+    end
+
+    if learning_mode == "bcm"
+        theta_v = cell2mat(varargin(1));
+        theta_v_lr = cell2mat(varargin(2));
+    end
+
+    % -- covariance rule preprocessing
     if learning_mode == "covariance"
-        u_mean = mean(data, 2);
+        mean_theta_u = cell2mat(varargin(1));
+        if mean_theta_u
+            theta_u = mean(data, 2);
+        else
+            theta_u = cell2mat(varargin(2));
+        end
     end
 
     for ep = 1:epochs
@@ -26,8 +40,10 @@ function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, theta_v, 
                 % compute the subtractive normalization step
                 delta_w = (v_i*data(:, i) - (v_i*(ones(1,2)*data(:, i))*ones(2,1))/2);
             elseif learning_mode == "covariance"
-                delta_w = (v_i*(data(:, i)-u_mean));
+                delta_w = (v_i*(data(:, i)-theta_u));
             elseif learning_mode == "bcm"
+                % treat theta_v as dynamical system
+                theta_v = theta_v + theta_v_lr*(v_i^2 - theta_v);
                 delta_w = (v_i*data(:, i)*(v_i-theta_v));
             end
 
@@ -59,7 +75,7 @@ function hebbian_learning(data, epochs, learning_rate, thr, alpha_oja, theta_v, 
     hold on
     % plot the eig vector
     line([0,max_eig_vect(1,1)],[0,max_eig_vect(2,1)], Color="green", LineWidth=1.5)
-    legend('','weight vector', 'eig vector');
+    legend('', 'weight vector', 'eig vector');
     title("Eigen vs Weight: " + learning_mode);
     hold off
     pause();
