@@ -66,41 +66,36 @@ function hebbian_learning(data, epochs, learning_rate, thr, learning_mode, varar
 
     [~, argmax] = max(diag(eigs));
     max_eig_vect = eigs_vects(:, argmax);
-
+    
+    subplot(2,2,1)
     scatter(data(1, :), data(2, :))
     hold on
     % plot the weight vector
     normalized_w = w/norm(w);
-    line([0,normalized_w(1,1)],[0,normalized_w(2,1)], Color="red", LineWidth=1.5)
+    quiver(0,0,normalized_w(1,1),normalized_w(2,1), Color="red", LineWidth=3)
     hold on
     % plot the eig vector
-    line([0,max_eig_vect(1,1)],[0,max_eig_vect(2,1)], Color="green", LineWidth=1.5)
+    quiver(0,0,max_eig_vect(1,1),max_eig_vect(2,1), Color="green", LineWidth=3)
     legend('', 'weight vector', 'eig vector');
     title("Eigen vs Weight: " + learning_mode);
     hold off
-    pause();
-    f = gcf;
-    exportgraphics(f, 'images/'+learning_mode+'_eig_vs_w.png', 'Resolution',300);
-
+    
+    subplot(2,2,2)
     % --- P2
     % plot the first component of the weight vectors in time
     plot(ws(1, :));
     title("Weight first component: " + learning_mode);
-    pause();
-    f = gcf;
-    exportgraphics(f, 'images/'+learning_mode+'_w_first_comp.png', 'Resolution',300);
-
+    
+    subplot(2,2,3)
     % plot the second component of the weight vectors in time
     plot(ws(2, :));
     title("Weight second component: " + learning_mode);
-    pause();
-    f = gcf;
-    exportgraphics(f, 'images/'+learning_mode+'_w_second_comp.png', 'Resolution',300);
-
+    
+    subplot(2,2,4)
     % plot the norm of the weight vectors in time
     plot(vecnorm(ws));
     title("Weight norm: " + learning_mode);
     pause();
     f = gcf;
-    exportgraphics(f, 'images/'+learning_mode+'_w_norm.png', 'Resolution',300);
+    exportgraphics(f, 'images/'+learning_mode+'.png', 'Resolution',300);
 end
