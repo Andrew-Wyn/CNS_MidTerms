@@ -1,4 +1,4 @@
-function hebbian_learning(data, epochs, learning_rate, thr, learning_mode, varargin)
+function [w, ws] = hebbian_learning(data, epochs, learning_rate, thr, learning_mode, varargin)
     % -- initialize the weight vector of dimension 2
     % --- uniform sampling between [-1, 1]
     w = (2).*rand(2,1) - 1;
@@ -95,7 +95,4 @@ function hebbian_learning(data, epochs, learning_rate, thr, learning_mode, varar
     % plot the norm of the weight vectors in time
     plot(vecnorm(ws));
     title("Weight norm: " + learning_mode);
-    pause();
-    f = gcf;
-    exportgraphics(f, 'images/'+learning_mode+'.png', 'Resolution',300);
 end
