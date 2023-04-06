@@ -1,4 +1,4 @@
-function [final_x, energies, overlaps] = hopfieldnet(input, memory, max_step)
+function [xs, energies, overlaps, activations] = hopfieldnet(input, memory, max_step)
 %HOPFIELDMET Summary of this function goes here
 %   Detailed explanation goes here    
     num_memory_els = size(memory, 2);
@@ -18,11 +18,20 @@ function [final_x, energies, overlaps] = hopfieldnet(input, memory, max_step)
     
     energies = [];
     overlaps = [];
+    xs = [];
+    
+    xs = [xs, input];
+    
+    activations = [];
     
     for t = 1:max_step
         old_x = final_x;
         for j=randperm(input_dim)
-            final_x(j) = sign(W(j, :)*final_x);
+            act = W*final_x;
+            final_x(j) = sign(act(j));
+            
+            activations = [activations, act];
+            xs = [xs, final_x];
 
             % compute the energy
             energies(end+1) = energy_function(W, final_x);

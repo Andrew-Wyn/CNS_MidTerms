@@ -22,7 +22,7 @@ memory = [p0, p1, p2];
 
 % 0: distorsion 0.05
 
-[final_x, energies, overlaps] = hopfieldnet(d_0_1, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_0_1, memory, 10);
 
 imagesc(reshape(d_0_1, 32, 32));
 % pause();
@@ -44,7 +44,7 @@ exportgraphics(f, 'images/distorted_0_1_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_0_1))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -52,7 +52,7 @@ exportgraphics(f, 'images/distorted_0_1_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.1
 
-[final_x, energies, overlaps] = hopfieldnet(d_0_2, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_0_2, memory, 10);
 
 imagesc(reshape(d_0_2, 32, 32));
 % pause();
@@ -74,7 +74,7 @@ exportgraphics(f, 'images/distorted_0_2_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_0_2))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -83,7 +83,7 @@ exportgraphics(f, 'images/distorted_0_2_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.25
 
-[final_x, energies, overlaps] = hopfieldnet(d_0_3, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_0_3, memory, 10);
 
 imagesc(reshape(d_0_3, 32, 32));
 % pause();
@@ -105,7 +105,7 @@ exportgraphics(f, 'images/distorted_0_3_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_0_1))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -113,7 +113,7 @@ exportgraphics(f, 'images/distorted_0_3_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.05
 
-[final_x, energies, overlaps] = hopfieldnet(d_1_1, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_1_1, memory, 10);
 
 imagesc(reshape(d_1_1, 32, 32));
 % pause();
@@ -135,7 +135,7 @@ exportgraphics(f, 'images/distorted_1_1_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_1_1))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -143,7 +143,7 @@ exportgraphics(f, 'images/distorted_1_1_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.1
 
-[final_x, energies, overlaps] = hopfieldnet(d_1_2, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_1_2, memory, 10);
 
 imagesc(reshape(d_1_2, 32, 32));
 % pause();
@@ -165,7 +165,7 @@ exportgraphics(f, 'images/distorted_1_2_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_1_2))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -174,7 +174,7 @@ exportgraphics(f, 'images/distorted_1_2_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.25
 
-[final_x, energies, overlaps] = hopfieldnet(d_1_3, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_1_3, memory, 10);
 
 imagesc(reshape(d_1_3, 32, 32));
 % pause();
@@ -196,7 +196,7 @@ exportgraphics(f, 'images/distorted_1_3_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_1_3))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -205,7 +205,7 @@ exportgraphics(f, 'images/distorted_1_3_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.05
 
-[final_x, energies, overlaps] = hopfieldnet(d_2_1, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_2_1, memory, 10);
 
 imagesc(reshape(d_2_1, 32, 32));
 % pause();
@@ -227,7 +227,7 @@ exportgraphics(f, 'images/distorted_2_1_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_2_1))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -235,7 +235,7 @@ exportgraphics(f, 'images/distorted_2_1_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.1
 
-[final_x, energies, overlaps] = hopfieldnet(d_2_2, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_2_2, memory, 10);
 
 imagesc(reshape(d_2_2, 32, 32));
 % pause();
@@ -257,7 +257,7 @@ exportgraphics(f, 'images/distorted_2_2_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_2_2))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
@@ -266,7 +266,7 @@ exportgraphics(f, 'images/distorted_2_2_reconstructed.png', 'Resolution',300)
 
 % 0: distorsion 0.25
 
-[final_x, energies, overlaps] = hopfieldnet(d_2_3, memory, 10);
+[xs, energies, overlaps, ~] = hopfieldnet(d_2_3, memory, 10);
 
 imagesc(reshape(d_2_3, 32, 32));
 % pause();
@@ -288,7 +288,7 @@ exportgraphics(f, 'images/distorted_2_3_overlap.png', 'Resolution',300)
 
 disp(argmax);
 
-imagesc(reshape(final_x, 32, 32));
+imagesc(reshape(xs(:, end), 32, 32));
 err = (sum(memory(argmax) - d_2_3))^2/1024;
 title("Reconstructed image, MSE with high overlap = " + err);
 f = gcf;
