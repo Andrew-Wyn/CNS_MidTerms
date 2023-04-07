@@ -1,18 +1,28 @@
-function [xs, energies, overlaps, activations] = hopfieldnet(input, memory, max_step)
+function [xs, energies, overlaps, activations] = hopfieldnet(input, memory, max_step, stop_criterion, varargin)
 %HOPFIELDMET Summary of this function goes here
 %   Detailed explanation goes here    
     num_memory_els = size(memory, 2);
     input_dim = size(memory, 1);
     
-    % learn the model
     
-    W = zeros(input_dim, input_dim);
     
-    for mi = 1:num_memory_els
-        W = W + memory(:, mi)*memory(:, mi)';
+    if size(varargin) == 0
+        % learn the model
+    
+        W = zeros(input_dim, input_dim);
+
+        for mi = 1:num_memory_els
+            W = W + memory(:, mi)*memory(:, mi)';
+        end
+
+        W = (W - num_memory_els*eye(size(W,1)))/input_dim;
+
+        % ---
+    else
+        % take the matrix's weight directly from the arguments
+        W = cell2mat(varargin(1));
+        % ---
     end
-    
-    W = (W - num_memory_els*eye(size(W,1)))/input_dim;
     
     final_x = input;
     
@@ -39,7 +49,7 @@ function [xs, energies, overlaps, activations] = hopfieldnet(input, memory, max_
             overlaps = [overlaps, overlap_function(final_x, memory)'];
         end
 
-        if norm(final_x - old_x) == 0
+        if stop_criterion && norm(final_x - old_x) == 0
             disp("reached fixed point");
             return
         end
