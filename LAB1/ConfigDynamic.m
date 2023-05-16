@@ -1,5 +1,3 @@
-% function izhikevic(a, b, c, d, v, i0, t0, max_step, msg)
-
 classdef ConfigDynamic
    properties
       a = NaN
@@ -9,9 +7,8 @@ classdef ConfigDynamic
       v = NaN
       u = NaN
       step = NaN
-      max_step = NaN
       msg = "Config Name"
-      voltage_f = NaN
+      is = NaN
       p1 = NaN
       p2 = NaN
       p3 = NaN
