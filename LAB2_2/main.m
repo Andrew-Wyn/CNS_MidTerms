@@ -310,11 +310,9 @@ function best_bias = select_bias(memory)
         for j = 1:size(memory, 2)
             mem = memory(:, j);
             
-            [xs, ~, overlaps, ~] = hopfieldnet(distort_image(mem, 0.1), memory, 10, 1, bias_try);
-                         
-            [~, argmax] = max(overlaps(:, end));
+            [xs, ~, ~, ~] = hopfieldnet(distort_image(mem, 0.1), memory, 10, 1, bias_try);
             
-            err = err + (sum(memory(:, argmax) - xs(:, end)))^2/1024;
+            err = err + (sum(mem - xs(:, end)))^2/1024;
         end
                 
         if err/size(memory, 2) < best_err

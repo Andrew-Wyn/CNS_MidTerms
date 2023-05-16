@@ -47,7 +47,7 @@ for i = 3:10
         
         % compute the discrepancy between the mem and reconstruction of the
         % distorted mem image
-        discrepancy = discrepancy + (sum(mem - dmem))^2/1024;
+        discrepancy = discrepancy + (sum(mem - xs(:, end)))^2/1024;
         
         % compute the overlap between the mem and reconstruction of the
         % distorted mem image during time of the model evolution
