@@ -1,3 +1,9 @@
+% Author: Luca Moroni
+% 
+% LAB 1 CNS Course
+%
+% This file contains the implementation of the izhikevic model
+
 % add possibility to switch btw euler and leap-frog method
 function izhikevic(config)
 % This function implement the izhikevic model to emulate the neural
