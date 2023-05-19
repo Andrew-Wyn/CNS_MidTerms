@@ -4,7 +4,6 @@
 %
 % This file contains the implementation of the izhikevic model
 
-% add possibility to switch btw euler and leap-frog method
 function izhikevic(config)
 % This function implement the izhikevic model to emulate the neural
 % complex system. Getting in input the parameter of the model,
@@ -57,7 +56,7 @@ function izhikevic(config)
     for t = 1:length(is)
         i = is(t);
         
-        % euler step
+        % step
         dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
         v = v + step*dv_dt;
         du_dt = a*(b*v -p3*u + p4);
