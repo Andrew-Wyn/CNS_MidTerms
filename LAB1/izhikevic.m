@@ -18,6 +18,10 @@ function izhikevic(config)
 %       neural dynamics not covered with the parameters of the original
 %       formulation.
 %
+% nota2: I have used the notation present in http://izhikevich.org/publications/figure1.m
+%        so indicating the membrane potential as v and recovery variable as
+%        u.
+%
 % Args
 %   - config: Object of the class ConfigDynamic
 
@@ -56,7 +60,7 @@ function izhikevic(config)
     for t = 1:length(is)
         i = is(t);
         
-        % step
+        % leap-frog method
         dv_dt = (0.04 * v^2 + p1*v +p2 - u + i);
         v = v + step*dv_dt;
         du_dt = a*(b*v -p3*u + p4);
