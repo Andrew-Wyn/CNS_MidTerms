@@ -1,3 +1,9 @@
+% CNS Lab 2.2 Bonus-track 2
+%
+% Author: Luca Moroni
+%
+% This file contains the code for the bonus track 2
+
 % Load the ten digits
 
 p0 = csvread("lab2_2_alldigits/p0.csv");
@@ -43,7 +49,7 @@ for i = 3:10
         mem = memory(:, j);
         dmem = distorted_dataset(:, j);
          
-        [xs, energies, overlaps, activations] = hopfieldnet(dmem, memory, 3, 0, W);
+        [xs, energies, overlaps, activations] = hopfieldnet(dmem, memory, 3, 0, 0, W);
         
         % compute the discrepancy between the mem and reconstruction of the
         % distorted mem image
@@ -53,16 +59,20 @@ for i = 3:10
         % distorted mem image during time of the model evolution
         overlap_original = dmem'*xs;
         overlap_original = overlap_original/input_dim;
-                
+                        
         overlapses = [overlapses, overlap_original'];
     end
     
     plot(overlaps');
     title("Overlaps during time");
-    legend();
+    legend_ = {};
+    for j = 1:i
+        legend_ = [legend_; "Pattern " + j];
+    end
+    legend(legend_);
     % pause();
     f = gcf;
-    exportgraphics(f, 'images/bonus_2_momory_'+string(i)+'.png', 'Resolution',300)
+    exportgraphics(f, 'images/bonus_2_memory_overlaps'+string(i)+'.png', 'Resolution',500)
     
     discrepancies = [discrepancies, discrepancy/size(memory, 2)];
     
@@ -73,4 +83,4 @@ plot(discrepancies');
 title("Average Discrepancy");
 % pause();
 f = gcf;
-exportgraphics(f, 'images/bonus_2_discrepancy.png', 'Resolution',300)
+exportgraphics(f, 'images/bonus_2_discrepancy.png', 'Resolution',500)

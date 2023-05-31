@@ -95,7 +95,7 @@ f = gcf;
 exportgraphics(f, 'images/bonus_1_1_activations.png', 'Resolution',300)
 
 % save activations
-save("activation_P1_1.mat", "activations_1")
+save("Bonuns_1_activation_P1_1.mat", "activations_1")
 
 % 2)
 p2d=[+1, +1, -1, -1, -1, +1, -1, -1]';
@@ -128,7 +128,7 @@ f = gcf;
 exportgraphics(f, 'images/bonus_1_2_activations.png', 'Resolution', 300)
 
 % save activations
-save("activation_P1_2.mat", "activations_2")
+save("Bonuns_1_activation_P1_2.mat", "activations_2")
 
 % 3)
 p3d=[+1, +1, +1, -1, +1, +1, -1, +1]';
@@ -161,7 +161,7 @@ f = gcf;
 exportgraphics(f, 'images/bonus_1_3_activations.png', 'Resolution',300)
 
 % save activations
-save("activation_P1_3.mat", "activations_3")
+save("Bonuns_1_activation_P1_3.mat", "activations_3")
 
 
 % doent's seems that the model can retrieve the correspective memeory
