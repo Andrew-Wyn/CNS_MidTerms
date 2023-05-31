@@ -96,6 +96,6 @@ function izhikevic(config)
     title("Phase Portrait: " + msg);
     
     f = gcf;
-    exportgraphics(f, 'images/'+msg+'.png', 'Resolution',300)
+    exportgraphics(f, 'images/'+msg+'.png', 'Resolution', 500)
 
 end
